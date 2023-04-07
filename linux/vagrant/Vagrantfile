@@ -1,0 +1,33 @@
+# Env for test
+
+#Parameters for the Vagrantfile
+name_so = "ubuntu"
+box_so = "bento/ubuntu-22.04"
+vm_hostname = "EnvToolLinuxForTest"
+vm_name_virtual_box="EnvToolLinuxForTest"
+bridged_network = "Intel(R) I211 Gigabit Network Connection" #Es el nombre de su red
+#bridged_network_2 = "AWS VPN Client TAP-Windows Adapter V9"
+
+ip_address_assigned = "192.168.18.220"
+
+#Utilizando virtualbox
+ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
+
+Vagrant.configure("2") do |config|  
+    config.vm.hostname = "#{vm_hostname}"
+    config.vm.box = "#{box_so}"
+    config.vm.network "public_network", bridge: "#{bridged_network}", ip: "#{ip_address_assigned}"
+    #config.vm.network "public_network", bridge: "#{bridged_network_2}"
+
+    config.vm.box_check_update = true
+
+    #Virtualbox
+    config.vm.provider "virtualbox" do |v|
+      v.name = "#{vm_name_virtual_box}"
+      v.memory = 1024
+      v.cpus = 1
+      # Enable promiscuous mode so the server can receive traffic
+      # for the virtual machines and containers.      
+      v.customize ["modifyvm", :id, "--nicpromisc2", "allow-vms"]
+    end
+end

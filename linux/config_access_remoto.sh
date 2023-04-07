@@ -1,5 +1,5 @@
 #!/bin/bash
-# wget -O - https://raw.githubusercontent.com/paulgualambo/linux-tool/main/config_access_remoto.sh | bash
+# wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_access_remoto.sh | bash
 #Config access remoto
 
 sudo apt install ssh

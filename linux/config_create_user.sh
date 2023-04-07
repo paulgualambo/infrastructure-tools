@@ -4,9 +4,9 @@
 # https://linuxize.com/post/how-to-create-users-in-linux-using-the-useradd-command/
 
 #Execute remote script
-# wget -O - https://raw.githubusercontent.com/paulgualambo/linux-tool/main/config_create_user.sh | bash -s "RED_HAT" "paul" "paul.gualambo@gmail.com" "P@ul1984"
+# wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_create_user.sh | bash -s "RED_HAT" "paul" "paul.gualambo@gmail.com" "P@ul1984"
 
-# wget -O - https://raw.githubusercontent.com/paulgualambo/linux-tool/main/config_create_user.sh | bash -s "DEBIAN" "paul" "paul.gualambo@gmail.com" "P@ul1984"
+# wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_create_user.sh | bash -s "DEBIAN" "paul" "paul.gualambo@gmail.com" "P@ul1984"
 
 
 #CONST

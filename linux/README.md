@@ -21,16 +21,31 @@ Tool
 * <input type="checkbox" /> Named Hostname
 * <input type="checkbox" /> Set up User
   * <input type="checkbox" /> [Create User](config_create_user.sh)
+
+    ```sh
+    #Execute remote script
+    wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_create_user.sh | bash -s "RED_HAT" "paul" "paul.gualambo@gmail.com" "P@ul1984"
+    wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_create_user.sh | bash -s "DEBIAN" "paul" "paul.gualambo@gmail.com" "P@ul1984"
+    ```
+
   * <input type="checkbox" /> Add group sudoers
 
     ```sh
     #https://linuxize.com/post/how-to-add-user-to-sudoers-in-ubuntu/
     sudo usermod -aG sudo $USER
-    sudo whoami
-
+    sudo whoami # return root then the user is as root
     ```
 
-  * <input type="checkbox" /> Access remote from other machine
-  * <input type="checkbox" /> Add User to other service as docker
+  * <input type="checkbox" /> Access remote from other machine [link1](config_access_remoto.sh) [link2](config_ssh-copy-id.sh)
+  
+    ```sh
+    wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_access_remoto.sh | bash
+
+    #Configure on host machine
+    #windows git bash, cmd, linux
+    ssh-copy-id -i ~/.ssh/id_rsa.pub ${USER_T}@${HOST_T}
+    ```
+
+* <input type="checkbox" /> Add User to other service as docker
 * <input type="checkbox" /> Set Ip, Create profile network
 * <input type="checkbox" /> Install docker, configure docker, add user to execute docker

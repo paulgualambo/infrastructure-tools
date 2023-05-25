@@ -1,0 +1,49 @@
+/* Requires the Docker Pipeline plugin */
+pipeline {
+    agent { docker { image 'node:18.16.0-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'node --version'
+            }
+        }
+    }
+}
+// pipeline {
+//     agent { docker { image 'node:18.16.0-alpine' } }
+    
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 // Perform build steps here
+//                 sh 'mvn clean install'
+//             }
+//         }
+        
+//         stage('Test') {
+//             steps {
+//                 // Perform test steps here
+//                 sh 'mvn test'
+//             }
+//         }
+        
+//         stage('Deploy') {
+//             steps {
+//                 // Perform deployment steps here
+//                 sh 'mvn deploy'
+//             }
+//         }
+//     }
+    
+//     post {
+//         success {
+//             // Actions to perform when the pipeline succeeds
+//             echo 'Pipeline succeeded!'
+//         }
+        
+//         failure {
+//             // Actions to perform when the pipeline fails
+//             echo 'Pipeline failed!'
+//         }
+//     }
+// }

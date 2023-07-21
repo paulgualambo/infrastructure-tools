@@ -1,8 +1,13 @@
 # GETSTARTED
 
-Copiar el archivo Vagrantfile, cambiar los valores a cambiar y seguir las instrucciones
-## INIT
 
-- Copiar el archivo Vagrantfile
-- Configurar la maquina virtual en base al siguiente archivo
-<https://github.com/paulgualambo/env-tools/tree/main/linux>
+## Instalación de Vagrant y Virtualbox
+Linux
+
+Windows
+
+En Vagrant Verificar donde se guardará los archivos de la maquina virtual cuando se crea
+## Vagrant
+* Comenzar con un archivo plano Vagrantfile, creado en la misma carpeta de documentos
+* [Inicializar la maquina virtual](../../linux/README.md)
+* Creación del repositorio en github, gitlab, bitbucket

@@ -77,22 +77,6 @@ sudo apt upgrade
 #awscli
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
-#docker
-#install docker
-##remove docker
-#DEBIAN
-sudo apt-get remove docker docker-engine docker.io containerd runc
-sudo apt-get update
-sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-##install docker
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo service docker start
-sudo apt install docker-compose
-
 
 #REDHAT    
 https://docs.docker.com/engine/install/centos/
@@ -112,13 +96,6 @@ sudo yum-config-manager \
 
 sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo service docker start
-#ubicar el grupo
-grep docker /etc/group
-sudo usermod -aG docker $USER
-newgrp docker
-#if the group don't exist
-#https://www.configserverfirewall.com/ubuntu-linux/add-user-to-docker-group-ubuntu/
-sudo groupadd docker
 sudo systemctl restart docker
 
 #Acceso remoto

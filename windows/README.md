@@ -1,5 +1,10 @@
 # WINDOWS-TOOLS README
 
+## Vagrant
+[Getstart](../vagrant/getstart)
+[Setup](../linux/prework-vm.sh)
+
+
 ## WSL
 
 Instalación de wsl y luego activar wsl 2

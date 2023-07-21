@@ -42,10 +42,40 @@ Tool
     wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_access_remoto.sh | bash
 
     #Configure on host machine
+    #terminal como gitbash
     #windows git bash, cmd, linux
     ssh-copy-id -i ~/.ssh/id_rsa.pub ${USER_T}@${HOST_T}
     ```
 
-* <input type="checkbox" /> Add User to other service as docker
-* <input type="checkbox" /> Set Ip, Create profile network
 * <input type="checkbox" /> Install docker, configure docker, add user to execute docker
+    ```sh
+    #docker
+    #install docker
+    ##remove docker
+    #DEBIAN
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt-get update
+    sudo apt-get install \
+        ca-certificates \
+        curl \
+        gnupg \
+        lsb-release
+    ##install docker
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    sudo service docker start
+    sudo apt install docker-compose
+    ```
+    
+* <input type="checkbox" /> Add User to other service as docker
+    ```sh
+    #if the group don\'t exist
+    #https://www.configserverfirewall.com/ubuntu-linux/add-user-to-docker-group-ubuntu/    
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    #ubicar el grupo
+    grep docker /etc/group
+    sudo usermod -aG docker $USER
+    newgrp docker
+    docker ps
+    ```
+* <input type="checkbox" /> Set Ip, Create profile network  

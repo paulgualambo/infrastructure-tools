@@ -1,5 +1,6 @@
 # GETSTARTED
 
+Copiar el archivo Vagrantfile, cambiar los valores a cambiar y seguir las instrucciones
 ## INIT
 
 - Copiar el archivo Vagrantfile

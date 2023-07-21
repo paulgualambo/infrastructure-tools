@@ -1,15 +1,21 @@
 # WINDOWS-TOOLS README
 
-## Vagrant
-[Getstart](../vagrant/getstart)
 
-[Setup](../linux/prework-vm.sh)
+## Instalación de Vagrant y Virtualbox
+Linux
+Windows
+
+En Vagrant Verificar donde se guardará los archivos de la maquina virtual
+## Vagrant
+Comenzar con un archivo plano Vagrantfile, creado en la misma carpeta de documentos
+[Getstart](./vagrant/getstart/README.md)
+[Setup](./linux/prework-vm.sh)
+
+Creación del repositorio en github, gitlab, bitbucket
 
 
 ## WSL
-
 Instalación de wsl y luego activar wsl 2
-
 dentro de del wsl activar los siguiente iptables
 
 ```sh

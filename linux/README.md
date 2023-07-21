@@ -6,7 +6,7 @@ Tool
 
 <https://cheatography.com/davbfr/cheat-sheets/vagrant-cheat-sheet/>
 <https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4>
-<https:/>/acloudguru.com/blog/engineering/vagrant-cheat-sheet-get-started-with-vagrant>
+<https://acloudguru.com/blog/engineering/vagrant-cheat-sheet-get-started-with-vagrant>
 
 ```sh
   vagrant up
@@ -40,12 +40,33 @@ Tool
   
     ```sh
     wget -O - https://raw.githubusercontent.com/paulgualambo/env-tools/main/linux/config_access_remoto.sh | bash
-
+    ```
+    ```sh
     #Configure on host machine
     #terminal como gitbash
     #windows git bash, cmd, linux
     ssh-copy-id -i ~/.ssh/id_rsa.pub ${USER_T}@${HOST_T}
     ```
+
+  * <input type="checkbox" />  Theme bash
+ 
+```sh
+#fix bash sh
+chsh -s /bin/bash
+#Install bash-it
+cd ~
+git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
+~/.bash_it/install.sh
+source ~/.bashrc
+sed -i 's/'$BASH_IT_THEME'/atomic/g' ~/.bashrc
+bash_it reload
+
+#https://ohmybash.nntoan.com/
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+bash_it reload
+```
 
 * <input type="checkbox" /> Install docker, configure docker, add user to execute docker
     ```sh

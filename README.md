@@ -1,5 +1,23 @@
 # ENV-TOOLS
 
+## TOOLS NEW MACHINE
+WINDOWS
+<ul>
+<li>VSCODE</li>
+<li>VIRTUAL BOX</li>
+<li>WSL 2</li>
+<li>VAGRANT
+<ul>
+    <li>DATABASE</li>
+    <li>APPS</li>
+</ul>
+</li>    
+<li>AZURE DATASTUDIO</li>
+<li>AWS-CLI</li>
+<li>GIT</li>
+</ul>
+
+
 ## WSL
 Instalación de wsl y luego activar wsl 2
 dentro de del wsl activar los siguiente iptables

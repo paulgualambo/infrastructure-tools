@@ -5,7 +5,9 @@ Tool
 ## Machine for test
 
 <https://cheatography.com/davbfr/cheat-sheets/vagrant-cheat-sheet/>
+
 <https://gist.github.com/wpscholar/a49594e2e2b918f4d0c4>
+
 <https://acloudguru.com/blog/engineering/vagrant-cheat-sheet-get-started-with-vagrant>
 
 ```sh
@@ -17,7 +19,7 @@ Tool
 
 ## Start machine
 
-* <input type="checkbox" /> [Update software and install software network an utilities](config_install_software_dev.sh)
+* <input type="checkbox" /> [Update software and install software network an utilities](config_install_software_debian.sh.sh)
 * <input type="checkbox" /> Named Hostname
 * <input type="checkbox" /> Set up User
   * <input type="checkbox" /> [Create User](config_create_user.sh)
@@ -55,15 +57,6 @@ Tool
   * <input type="checkbox" />  Theme bash
  
 ```sh
-#fix bash sh
-chsh -s /bin/bash
-#Install bash-it
-cd ~
-git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-~/.bash_it/install.sh
-source ~/.bashrc
-sed -i 's/'$BASH_IT_THEME'/atomic/g' ~/.bashrc
-bash_it reload
 
 ```
 
@@ -110,3 +103,34 @@ bash_it reload
     docker ps
     ```
 * <input type="checkbox" /> Set Ip, Create profile network  
+
+verificar el ssh
+verificar el Ip, dhcp, y el dns
+
+```sh
+systemctl status ssh
+service ssh status
+netstat -tuln | grep 22
+sudo apt install net-tools
+ip a
+
+sudo vi /etc/netplan/00-installer-config.yaml
+
+# This is the network config written by 'subiquity'
+network:
+  ethernets:
+    enp0s3:
+      addresses:
+      - 192.168.18.143/24
+      dhcp4: false
+      routes:
+        - to: default
+          via: 192.168.18.1
+      nameservers:
+        addresses:
+          - 8.8.8.8
+          - 8.8.4.4
+  version: 2
+
+sudo netplan apply
+```

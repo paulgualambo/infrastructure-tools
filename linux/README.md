@@ -65,11 +65,6 @@ source ~/.bashrc
 sed -i 's/'$BASH_IT_THEME'/atomic/g' ~/.bashrc
 bash_it reload
 
-#https://ohmybash.nntoan.com/
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-bash_it reload
 ```
 
 * <input type="checkbox" /> Install docker, configure docker, add user to execute docker
@@ -87,11 +82,11 @@ bash_it reload
         lsb-release
     ##install docker
     sudo apt update
-    sudo apt install apt-transport-https ca-certificates curl software-properties-common
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common -y
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt update
-    sudo apt install docker-ce docker-ce-cli containerd.io
+    sudo apt install docker-ce docker-ce-cli containerd.io -y
     sudo docker --version
     sudo usermod -aG docker $USER
     sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose

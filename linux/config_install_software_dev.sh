@@ -7,7 +7,7 @@
 ## wget -O - https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/config_install_software_dev.sh | bash -s $USERNAME
 ##
 #exec 0</dev/null
-export DEBIAN_FRONTEND=noninteractive
+#export DEBIAN_FRONTEND=noninteractive
 
 USERNAME=${1}
 

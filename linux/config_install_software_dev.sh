@@ -46,6 +46,7 @@ docker-compose --version
 # Crea un nuevo usuario si aún no existe
 id -u $USERNAME &>/dev/null || useradd -m -s /bin/bash  $USERNAME
 
+su $USERNAME
 # Cambia a la home del nuevo usuario
 HOME_DIR="/home/$USERNAME"
 

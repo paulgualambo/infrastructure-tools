@@ -42,4 +42,42 @@ if [ ! -d "$BASH_IT" ]; then
     sudo chown $USERNAME:$USERNAME "$HOME_DIR/.bashrc"
 fi
 
+
+# Verifica si el script se está ejecutando como root
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Este script debe ser ejecutado como root"
+    exit 1
+fi
+
+# Define la variable USERNAME
+#USERNAME="paul"
+
+# Instala zsh si aún no está instalado
+if ! command -v zsh &> /dev/null; then
+    echo "Instalando zsh..."
+    apt update && apt install zsh -y
+fi
+
+# Cambia la shell por defecto para el usuario
+usermod -s $(which zsh) $USERNAME
+
+# Instala oh-my-zsh para el usuario
+if [ ! -d "/home/$USERNAME/.oh-my-zsh" ]; then
+    echo "Instalando oh-my-zsh para el usuario $USERNAME..."
+    runuser -l $USERNAME -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
+# Instala el tema powerlevel10k para el usuario
+if [ ! -d "/home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k" ]; then
+    echo "Instalando el tema powerlevel10k para el usuario $USERNAME..."
+    runuser -l $USERNAME -c "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git /home/$USERNAME/.oh-my-zsh/custom/themes/powerlevel10k"
+fi
+
+# Configura el tema powerlevel10k en el archivo .zshrc del usuario
+if ! grep -q 'ZSH_THEME="powerlevel10k/powerlevel10k"' /home/$USERNAME/.zshrc; then
+    echo 'Cambiando el tema a powerlevel10k...'
+    runuser -l $USERNAME -c "echo 'ZSH_THEME=\"powerlevel10k/powerlevel10k\"' >> /home/$USERNAME/.zshrc"
+fi
+
 echo "Instalación completada."
+

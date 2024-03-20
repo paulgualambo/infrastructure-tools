@@ -55,7 +55,7 @@ fi
 # Instala zsh si aún no está instalado
 if ! command -v zsh &> /dev/null; then
     echo "Instalando zsh..."
-    apt update && apt install zsh -y
+    apt-get update && apt-get install zsh -y
 fi
 
 # Cambia la shell por defecto para el usuario

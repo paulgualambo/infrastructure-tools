@@ -45,6 +45,7 @@ fi
 sudo apt-get install curl bash
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 mkdir -p ~/.config
+mkdir -p /home/$USERNAME/.config
 wget -O ~/.config/starship.toml https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/starship.toml
 mv ~/.config/starship.toml /home/$USERNAME/.config/
 echo 'eval "$(starship init bash)"' >> ~/.bashrc

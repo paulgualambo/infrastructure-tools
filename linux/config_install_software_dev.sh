@@ -40,14 +40,13 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Define la variable USERNAME
-#USERNAME="paul"
 
+#INSTALL STARSHIP
 sudo apt-get install curl bash
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
-
+wget -O ~/.config/starship.toml https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/starship.toml
 mkdir -p ~/.config
 mv ~/.config/starship.toml /home/$USERNAME/.config/
-
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 source ~/.bashrc
 

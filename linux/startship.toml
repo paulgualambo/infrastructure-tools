@@ -1,0 +1,72 @@
+# Deshabilitar el módulo de hostname
+[hostname]
+disabled = true
+
+[directory]
+truncation_length = 0
+format = "[$path]($style) "
+style = "bold cyan"
+
+[custom.ip]
+command = "echo -n $(hostname) $(hostname -I | awk '{print $2}')"
+when = "true"
+description = "Muestra la dirección IP local"
+style = "bold blue"
+
+[battery]
+disabled = true
+
+# Prompt general
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[git_branch]
+symbol = '🌱 '
+truncation_length = 100
+truncation_symbol = ''
+
+[git_commit]
+commit_hash_length = 0
+tag_symbol = '🔖 '
+
+[git_status]
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+conflicted = '🏳'
+#ahead = '🏎💨'
+#behind = '😰'
+#diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '[++\($count\)](bold yellow)📝'
+staged = '[++\($count\)](green)'
+renamed = '👅'
+deleted = '🗑'
+
+# Node.js (para TypeScript y JavaScript)
+[nodejs]
+format = "via [⬢ $version](bold green) "
+
+# Docker
+[docker_context]
+format = "via [🐳 $context](blue bold) "
+
+# Kubernetes
+[kubernetes]
+format = "[$symbol$context](bold blue) "
+symbol = "⛵ "
+
+# AWS
+[aws]
+format = "on [$symbol$profile](bold yellow) "
+symbol = "☁️  "
+
+# Time (opcional, útil para tracking de tiempo)
+[time]
+disabled = false
+format = "🕒 [$time]($style) "
+time_format = "%T"
+style = "bold yellow"

@@ -47,7 +47,9 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 mkdir -p ~/.config
 mkdir -p /home/$USERNAME/.config
 wget -O ~/.config/starship.toml https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/starship.toml
-mv ~/.config/starship.toml /home/$USERNAME/.config/
+mv ~/.config/starship.toml /home/$USERNAME/.config/starship.toml
+sudo chmod 775 /home/$USERNAME/.config/starship.toml
+sudo chown $USERNAME:$USERNAME /home/$USERNAME/.config/starship.toml
 echo 'eval "$(starship init bash)"' >> ~/.bashrc
 source ~/.bashrc
 

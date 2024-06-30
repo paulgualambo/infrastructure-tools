@@ -43,14 +43,14 @@ fi
 #USERNAME="paul"
 
 sudo apt-get install curl bash
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 
 mkdir -p ~/.config
-wget -O ~/.config/starship.toml https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/starship.toml
+mv /root/.config/starship.toml ~/.config/
 
-# Start Starship prompt
-eval "$(starship init bash)"
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
 source ~/.bashrc
+
 
 echo "Instalación completada."
 

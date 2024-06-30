@@ -32,16 +32,6 @@ fi
 
 # Configurar Bash-it para el usuario si aún no está configurado
 HOME_DIR=$(eval echo "~$USERNAME")
-BASH_IT="$HOME_DIR/.bash_it"
-
-if [ ! -d "$BASH_IT" ]; then
-    sudo -u $USERNAME git clone --depth=1 https://github.com/Bash-it/bash-it.git "$BASH_IT"
-    sudo -u $USERNAME bash -c "yes | $BASH_IT/install.sh"
-    sudo sed -i "s/export BASH_IT_THEME='.*'/export BASH_IT_THEME='atomic'/g" "$HOME_DIR/.bashrc"
-    sudo chown -R $USERNAME:$USERNAME "$BASH_IT"
-    sudo chown $USERNAME:$USERNAME "$HOME_DIR/.bashrc"
-fi
-
 
 # Verifica si el script se está ejecutando como root
 if [ "$(id -u)" -ne 0 ]; then
@@ -54,6 +44,9 @@ fi
 
 sudo apt-get install curl bash
 curl -sS https://starship.rs/install.sh | sh
+
+mkdir -p ~/.config
+wget -O ~/.config/starship.toml https://raw.githubusercontent.com/paulgualambo/infrastructure-tools/main/linux/starship.toml
 
 # Start Starship prompt
 eval "$(starship init bash)"

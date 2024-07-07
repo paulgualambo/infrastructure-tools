@@ -20,9 +20,6 @@ EMAIL=${3}
 PASSWORD=${4}
 COMMENT="${USER} ${EMAIL}"
 
-#back directory
-sudo mv /home/${USER} /home/${USER}_backup
-
 # -m create home directory
 sudo useradd -s /bin/bash -c "${COMMENT}" -m ${USER} && echo ${USER}:${PASSWORD} | sudo chpasswd
 
@@ -40,11 +37,6 @@ then
     sudo usermod -aG wheel ${USER}
     echo "Se registro el usuario al grupo"
 fi
-
-#Trasladando los archivos
-sudo cp -r /home/${USER}_backup/* /home/${USER}/
-sudo chown -R ${USER}:${USER} /home/${USER}
-sudo rm -rf /home/${USER}_backup
 
 # busqueda del usuario
 sudo cat /etc/passwd | grep ${USER}

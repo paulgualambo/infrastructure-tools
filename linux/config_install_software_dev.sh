@@ -43,21 +43,15 @@ fi
 sudo apt update
 sudo apt install rsync -y
 
-sudo apt-get update
 sudo apt-get install bash-completion
 sudo echo 'if [ -f /etc/bash_completion ]; then' >> /home/$USERNAME/.bashrc
 sudo echo '    . /etc/bash_completion' >> /home/$USERNAME/.bashrc
 sudo echo 'fi' >> /home/$USERNAME/.bashrc
 
 sudo curl -o /home/$USERNAME/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-sudo echo 'if [ -f /home/${USERNAME}/.git-completion.bash ]; then' >> /home/$USERNAME/.bashrc
-sudo echo '    . /home/${USERNAME}/.git-completion.bash' >> /home/$USERNAME/.bashrc
-sudo echo 'fi' >> /home/${USERNAME}/.bashrc
-sudo echo '__git_complete g __git_main' >> /home/$USERNAME/.bashrc
-sudo echo '__git_complete gc __git_commit' >> /home/$USERNAME/.bashrc
-sudo echo '__git_complete gco __git_checkout' >> /home/$USERNAME/.bashrc
-sudo echo '__git_complete gb __git_branch' >> /home/$USERNAME/.bashrc
-sudo echo '__git_complete ga __git_add' >> /home/$USERNAME/.bashrc
+sudo echo "if [ -f /home/${USERNAME}/.git-completion.bash ]; then" >> /home/$USERNAME/.bashrc
+sudo echo "    . /home/${USERNAME}/.git-completion.bash" >> /home/$USERNAME/.bashrc
+sudo echo "fi" >> /home/${USERNAME}/.bashrc
 
 
 # Define la variable USERNAME

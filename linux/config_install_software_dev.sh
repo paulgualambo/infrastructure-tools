@@ -33,12 +33,6 @@ fi
 # Configurar Bash-it para el usuario si aún no está configurado
 HOME_DIR=$(eval echo "~$USERNAME")
 
-# Verifica si el script se está ejecutando como root
-if [ "$(id -u)" -ne 0 ]; then
-    echo "Este script debe ser ejecutado como root"
-    exit 1
-fi
-
 #rsync
 sudo apt update
 sudo apt install rsync -y

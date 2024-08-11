@@ -12,6 +12,8 @@ fi
 # Actualizar el índice de paquetes e instalar software básico
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
+sudo apt-get install curl bash
+sudo apt install rsync -y
 sudo apt-get install -y git net-tools apt-transport-https ca-certificates curl software-properties-common
 
 # Configurar la zona horaria
@@ -33,10 +35,6 @@ fi
 # Configurar Bash-it para el usuario si aún no está configurado
 HOME_DIR=$(eval echo "~$USERNAME")
 
-#rsync
-sudo apt update
-sudo apt install rsync -y
-
 sudo apt-get install bash-completion
 sudo echo 'if [ -f /etc/bash_completion ]; then' >> /home/$USERNAME/.bashrc
 sudo echo '    . /etc/bash_completion' >> /home/$USERNAME/.bashrc
@@ -49,9 +47,7 @@ sudo echo "fi" >> /home/${USERNAME}/.bashrc
 
 
 # Define la variable USERNAME
-
 #INSTALL STARSHIP
-sudo apt-get install curl bash
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 mkdir -p ~/.config
 mkdir -p /home/$USERNAME/.config
@@ -62,5 +58,5 @@ sudo chmod 775 /home/$USERNAME/.config/starship.toml
 sudo chown $USERNAME:$USERNAME /home/$USERNAME/.config/starship.toml
 
 
-echo "Instalación completada."
+echo "Instalación completada install basic dev."
 

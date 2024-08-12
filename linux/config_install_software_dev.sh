@@ -12,7 +12,7 @@ fi
 # Actualizar el índice de paquetes e instalar software básico
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
-sudo apt-get install curl bash
+sudo apt-get install curl bash -y
 sudo apt install rsync -y
 sudo apt-get install -y git net-tools apt-transport-https ca-certificates curl software-properties-common
 

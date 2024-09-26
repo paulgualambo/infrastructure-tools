@@ -10,7 +10,6 @@ if ! id -u $USERNAME &>/dev/null; then
 fi
 
 # Actualizar el índice de paquetes e instalar software básico
-export DEBIAN_FRONTEND=noninteractive
 sudo dnf update
 sudo dnf install curl bash -y
 sudo dnf install rsync -y
@@ -23,7 +22,10 @@ sudo timedatectl set-timezone "America/Lima"
 if ! type docker &>/dev/null; then
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
-    sudo usermod -aG docker $USERNAME
+    docker --version
+    newgrp docker    
+    sudo usermod -aG docker $USER
+    sudo systemctl restart docker
 fi
 
 # Instalar Docker Compose si aún no está instalado
@@ -33,8 +35,6 @@ if ! type docker-compose &>/dev/null; then
 fi
 
 # Configurar Bash-it para el usuario si aún no está configurado
-HOME_DIR=$(eval echo "~$USERNAME")
-
 sudo dnf install bash-completion
 sudo echo 'if [ -f /etc/bash_completion ]; then' >> /home/$USERNAME/.bashrc
 sudo echo '    . /etc/bash_completion' >> /home/$USERNAME/.bashrc
@@ -59,4 +59,13 @@ sudo chown $USERNAME:$USERNAME /home/$USERNAME/.config/starship.toml
 
 
 echo "Instalación completada install basic dev."
+
+#Add .bashrc to add ssh in terminal
+echo -e '\n# Iniciar el agente SSH\n' >> ~/.bashrc
+echo 'eval "$(ssh-agent -s)"' >> ~/.bashrc
+echo -e '\n# Agregar todas las claves SSH que coincidan con el patrón\n' >> ~/.bashrc
+echo "for key in ~/.ssh/\${USERNAME}-*-id-key_ed25519; do" >> ~/.bashrc
+echo '    ssh-add "$key" ' >> ~/.bashrc
+echo 'done' >> ~/.bashrc
+echo 'echo "All SSH keys have been added successfully."' >> ~/.bashrc
 
